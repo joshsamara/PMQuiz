@@ -32,3 +32,27 @@ header .row {
   background: #333;
   padding: 24px 0 10px;
 }
+
+.tool {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: #cbcbcb;
+}
+
+.tool .desc {
+  font-size: .75rem;
+  margin-bottom: 5px;
+}
+
+.tool .link {
+  margin-bottom: 5px;
+}
+
+.tool-group {
+  border-bottom: 1px solid #bbb;
+}
+
+.bordered {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}

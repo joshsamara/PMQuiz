@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Tools{% endblock %}
+
+{% block header %}
+Tool Details
+{% endblock %}
+
+{% block subheader %}
+
+{% if recommend %}
+Our recommended tools for your project
+{% else %}
+Tools that we may recommend
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+  {% for group, values in tool_data.iteritems() %}
+    {% if values|length %}
+      <div class="row text-center">
+        <h2 class="tool-group">
+          {{ group }}
+        </h2>
+      </div>
+      <div class="row text-center">
+        {% for tool in values %}
+        <div class="large-4 columns tool{% if values|length == 1 %} large-offset-4{% endif %}">
+          <h5> {{tool.name}} </h5>
+          <img src="{{tool.img}}" />
+          <p class="desc">{{tool.desc}}</p>
+          <p class="link"><a href="{{tool.link}}">Link</a></p>
+        </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+  <div class="row text-center bordered">
+    <h2>{% if recommend %}Ret{% else %}T{% endif %}ake the quiz!</h2>
+    <a class="button" href="{{ url_for('quiz') }}">Let's Go</a>
+  </div>
+{% endblock %}

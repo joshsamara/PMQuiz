@@ -16,10 +16,16 @@ href="static/styles.css">
 <body>
 
 <!-- Entire Navbar Code -->
-<nav class="top-bar">
-  <ul>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
     <li class="name"><h1><a href="{{ url_for('home') }}">Home</a></h1></li>
   </ul>
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li><a href="{{ url_for('results') }}">Tools</a></li>
+    </ul>
+  </section>
 </nav>
 
 <header class="bg-blue1">
