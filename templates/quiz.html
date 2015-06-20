@@ -2,6 +2,82 @@
 
 {% block title %}Quiz{% endblock %}
 
+{% block header %}
+Quiz Section
+{% endblock %}
+
 {% block content %}
-<h1>Quiz</h1>
+
+<div class="row text-ceneter">
+  <h4 class="subheader">Fill out the following form for recommendations.</h4>
+  <form action="{{ url_for('quiz') }}" method="post">
+    <fieldset>
+      {# Row 1 #}
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Team Size
+            <input name="size" type="number" placeholder="Number of people on the team" />
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>Team Members</label>
+          <input name="eng" type="checkbox"><label for="checkbox1">Engineers</label>
+          <input name="pm" type="checkbox"><label for="checkbox2">PMs</label>
+          <input name="anls" type="checkbox"><label for="checkbox2">Analysts</label>
+        </div>
+      </div>
+      {# Row 2 #}
+      <div class="row">
+        <div class="large-4 columns">
+          <label>Software Budget
+            <select name="budget">
+              <option value="none">None</option>
+              <option value="small">Small (< $100)</option>
+              <option value="med">Medium ($100-$1000)</option>
+              <option value="large">Large ($1000+)</option>
+            </select>
+          </label>
+        </div>
+        <div class="large-4 columns">
+          <label>Estimated Duration
+            <select name="duration">
+              <option value="short">Short (< Month)</option>
+              <option value="medium">Medium (Month-Year)</option>
+              <option value="long">Long (Year+)</option>
+              <option value="unlimited">Continuous (No End)</option>
+            </select>
+          </label>
+        </div>
+        <div class="large-4 columns">
+          <label>Multiple Projects?</label>
+          <input type="radio" name="multiple" value="yes"><label>Yes</label>
+          <input type="radio" name="multiple" value="no"><label>No</label>
+        </div>
+      </div>
+      {# Row 3 #}
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Source Control
+            <select name="budget">
+              <option value="none">Not Needed</option>
+              <option value="public">Public</option>
+              <option value="private">Private via Provider</option>
+              <option value="personal">Private via self-hosted</option>
+            </select>
+          </label>
+        </div>
+        <div class="large-6 columns">
+          <label>Requirements Documentation
+            <select name="duration">
+              <option value="none">Not Needed</option>
+              <option value="small">Limited (short, simple documentation)</option>
+              <option value="large">Expansive (verbose, developed documentation tools)</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      <input type="submit" class="button expand success">
+    </fieldset>
+  </form>
+</div>
 {% endblock %}

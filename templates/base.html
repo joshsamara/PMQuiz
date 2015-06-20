@@ -18,12 +18,18 @@ href="static/styles.css">
 <!-- Entire Navbar Code -->
 <nav class="top-bar">
   <ul>
-    <li class="name"><h1><a href="/">Home</a></h1></li>
-    <li class="toggle-topbar"><a href="#"></a></li>
+    <li class="name"><h1><a href="{{ url_for('home') }}">Home</a></h1></li>
   </ul>
 </nav>
 
-<div id="content">
+<header class="bg-blue1">
+  <div class="row">
+    <h1 class="white">{% block header %}{% endblock %}</h1>
+    <h5 class="white">{% block subheader %}{% endblock %}</h5>
+  </div>
+</header>
+
+<div class="container" id="content">
   {% block content %}{% endblock %}
 </div>
 
