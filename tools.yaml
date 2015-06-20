@@ -3,63 +3,78 @@
     desc: Well established repository hosting service
     img: https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png
     link: https://github.com/
+    uid: gh
   - name: BitBucket
     desc: Atlassian repository hosting service with free private repos
     img: http://gopherwarestudios.com/wp-content/uploads/2015/05/bitbucket-logo.png
     link: https://bitbucket.org/
+    uid: bb
 "Project Tracking":
   - name: Trello
     desc: Lightweight web-based ticketing system
     img: http://market.designmodo.com/wp-content/uploads/2015/06/trello-logo.png
     link: https://trello.com/
+    uid: tl
   - name: Producteev
     desc: Highly featured free project tracker
     img: https://lh4.ggpht.com/gLaNW02aa11hwBd4JzdHYmIVHmfAeNdVSlW5QZDkc4rsPiC1ZP0fgthcWAVRk3YDnbs=w300
     link: https://www.producteev.com/
+    uid: pv
   - name: Jira
     desc: Atlassian project tracking software
     img: https://d3jgo56a5b0my0.cloudfront.net/images/v7/logos/logoJIRAPNG.png
     link: https://www.atlassian.com/software/jira
+    uid: jr
 "Project Management":
   - name: Microsoft Project
     desc: Microsoft developed project management software
     img: http://icons.iconarchive.com/icons/carlosjj/microsoft-office-2013/256/Project-icon.png
     link: https://products.office.com/en-us/project/project-and-portfolio-management-software
+    uid: mp
   - name: ProjectLibre
     desc: Free project management software
     img: http://grok.lsu.edu/image/35792.jpg
     link: http://www.projectlibre.org/
+    uid: pl
   - name: Liquid Planner
     desc: Expensive, but highly polished and very functional software
     img: http://www.getacoder.com/blog/wp-content/uploads/2014/08/liquid_planner1.jpg
     link: http://www.liquidplanner.com/
+    uid: lp
   - name: Google Sheets
     desc: Free spreadsheet editor
     img: http://cnet1.cbsistatic.com/hub/i/r/2013/12/10/a42a057d-67d7-11e3-a665-14feb5ca9861/thumbnail/670x503/eb5f972427a0f380badff10a69564af9/Google-Sheets-icon.png
     link: http://sheets.google.com
+    uid: gs
 "Project Documentation":
   - name: Google Docs
     desc: Free document editor
     img: https://www.sutechtraining.com/wp-content/uploads/2015/03/Google-Docs-Logo1.png
     link: http://docs.google.com
+    uid: gd
   - name: Confluence
-    desc: Atlassian online project documenting wiki.
+    desc: Atlassian online project documenting wiki
     img: http://www-design.icts.uiowa.edu/sites/default/files/confluence.white_.214x214_0.png
     link: https://www.atlassian.com/software/confluence
+    uid: cf
 "Other Software":
   - name: Google Drive
     desc: File storage and sharing
     img: http://www.bjheinley.com/wp-content/uploads/2012/04/google_drive_600.png
     link: http://drive.google.com
+    uid: gd
   - name: Vim
     desc: Free extensible text editor
     img: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Vimlogo.svg/1022px-Vimlogo.svg.png
     link: http://www.vim.org/
+    uid: vi
   - name: Sublime Text
     desc: Multipurpose extensible text editor
     img: http://devilshouts.com/wp-content/uploads/2014/10/Sublime.jpg
     link: http://www.sublimetext.com/
+    uid: st
   - name: Regular Expressions 101
     desc: Regex parsing and translation tool
     img: http://www.seocial.com/material/media/resource-regex101.jpg
     link: https://regex101.com/
+    uid: re
