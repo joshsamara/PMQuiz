@@ -51,7 +51,7 @@ Quiz Section
         <div class="large-4 columns">
           <label>Multiple Projects?</label>
           <input type="radio" name="multiple" value="yes"><label>Yes</label>
-          <input type="radio" name="multiple" value="no"><label>No</label>
+          <input type="radio" name="multiple" value="no" checked="true"><label>No</label>
         </div>
       </div>
       {# Row 3 #}
@@ -74,6 +74,35 @@ Quiz Section
               <option value="large">Expansive (verbose, developed documentation tools)</option>
             </select>
           </label>
+        </div>
+      </div>
+      {# Row 4 #}
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Are multiple tools okay?</label>
+          <input type="radio" name="tools" value="yes" checked="true"><label>Yes</label>
+          <input type="radio" name="tools" value="no"><label>No</label>
+        </div>
+        <div class="large-6 columns">
+          <label>Visualizations Needed?</label>
+          <input name="wbs" type="checkbox"><label>WBS</label>
+          <input name="task-list" type="checkbox"><label>Task List</label>
+          <input name="task-board" type="checkbox"><label>Task Board</label>
+          <input name="gantt" type="checkbox"><label>Gantt Chart</label>
+        </div>
+      </div>
+      {# Row 5 #}
+      <div class="row">
+        <div class="large-6 columns">
+          <label>Web Based Only?</label>
+          <input type="radio" name="web-based" value="yes"><label>Yes</label>
+          <input type="radio" name="web-based" value="no" checked="true"><label>No</label>
+        </div>
+        <div class="large-6 columns">
+          <label>Other Requirements</label>
+          <input name="other-storage" type="checkbox"><label>File Storage</label>
+          <input name="text-editor" type="checkbox"><label>Text Editor</label>
+          <input name="regex" type="checkbox"><label>Regex Translator</label>
         </div>
       </div>
       <input type="submit" class="button expand success">

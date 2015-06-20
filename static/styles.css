@@ -36,7 +36,7 @@ header .row {
 .tool {
   border: 1px solid black;
   border-radius: 5px;
-  background: #cbcbcb;
+  background: #ccc;
 }
 
 .tool .desc {
@@ -52,7 +52,22 @@ header .row {
   border-bottom: 1px solid #bbb;
 }
 
+.tool .img-holder {
+  background: #eee;
+  max-width: 328px;
+  overflow: auto;
+}
+
 .bordered {
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.notes {
+  list-style-type: none;
+}
+
+.notes li {
+  font-style: italic;
+  font-size: 16px;
 }
