@@ -46,6 +46,11 @@
     img: http://cnet1.cbsistatic.com/hub/i/r/2013/12/10/a42a057d-67d7-11e3-a665-14feb5ca9861/thumbnail/670x503/eb5f972427a0f380badff10a69564af9/Google-Sheets-icon.png
     link: http://sheets.google.com
     uid: gs
+  - name: Tom's Planner
+    desc: Online project management tool
+    img: http://cdn.appappeal.com/pictures/8927/logo.png
+    link: http://www.tomsplanner.com/
+    uid: tp
 "Project Documentation":
   - name: Google Docs
     desc: Free document editor
