@@ -15,7 +15,8 @@ def home():
 @app.route("/quiz", methods=['GET', 'POST'])
 def quiz():
     if request.method == 'POST':
-        tool_data, notes = choose_tools(dict(request.form))
+        form_data = {k: v[0] for k, v in dict(request.form).iteritems()}
+        tool_data, notes = choose_tools(form_data)
         return results(True, tool_data, notes)
     else:
         return render_template('quiz.html')

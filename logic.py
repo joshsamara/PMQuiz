@@ -1,20 +1,18 @@
 from yaml import load
+from collections import OrderedDict
 
 # Load tools from yaml
 with open("tools.yaml", 'r') as stream:
-    ALL_TOOLS = load(stream)
+    tmp_tools = load(stream)
     stream.close()
 
-
-def choose_tools(form_data):
-    selection = set()
-    print form_data
-    tools = filter_tools(selection)
-    return tools, []
+ALL_TOOLS = OrderedDict()
+for key in reversed(sorted(tmp_tools)):
+    ALL_TOOLS[key] = tmp_tools[key]
 
 
 def filter_tools(selection):
-    selected_tools = {}
+    selected_tools = OrderedDict()
     for group, tools in ALL_TOOLS.iteritems():
         group_selection = []
         for tool in tools:
@@ -25,3 +23,145 @@ def filter_tools(selection):
             # If we have any tools in this group add them
             selected_tools[group] = group_selection
     return selected_tools
+
+
+def choose_tools(form_data):
+    def check(key, options):
+        v = form_data.get(key)
+        if isinstance(options, list):
+            return v in options
+        else:
+            return v == options
+
+    selection = set()
+    notes = []
+
+    low_budget = check('budget', ['none', 'small'])
+    small_team = check('size', ['personal', 'small'])
+
+    # Other Storage logic
+    if check('other-storage', 'on'):
+        if low_budget:
+            # Google drive
+            selection.add('gr')
+            notes.append('Google drive is useful for file storage and '
+                         'file sharing')
+        else:
+            # s3
+            selection.add('s3')
+            notes.append('S3 is good for both file storage of any type '
+                         'AND external file serving')
+
+    # Text Editor
+    if check('text-editor', 'on'):
+        if low_budget:
+            # Vim
+            selection.add('vi')
+        else:
+            # Sublime
+            selection.add('st')
+            notes.append('Sublime text is an affordable and customizable '
+                         'text editor')
+
+    # Markdown
+    if check('markdown', 'on'):
+        selection.add('md')
+
+    # Regex
+    if check('regex', 'on'):
+        selection.add('re')
+
+    # Source Control
+    if check('source', 'public'):
+        selection.add('gh')
+        # Github
+    elif check('source', 'private'):
+        if low_budget:
+            # BitBucket
+            selection.add('bb')
+            if small_team:
+                notes.append('BitBucket provided a few free private repositories. '
+                             'I recommend github if the budget can be expanded')
+            else:
+                notes.append('BitBucket provided a few free private repositories. '
+                             'This may not be enough for a larger team.')
+        else:
+            selection.add('gh')
+            notes.append('GitHub is more expensive but a better product than BitBucket')
+    elif check('source', 'personal'):
+        notes.append('You will need to create your own source control hosting option.')
+
+    # Project Tracking
+    if check('multiple', 'no') and (selection & {'bb', 'gh'}):
+        notes.append('Because you chose to not use multiple applications, '
+                     'Bitbucket or GitHub should be sufficient for task tracking.')
+    elif not low_budget:
+        selection.add('jr')
+    elif check('task-board', 'on') or small_team or check('duration', 'short'):
+        selection.add('tl')
+        notes.append('Trello is good for smaller projects or kanban projects.')
+    else:
+        selection.add('pv')
+        notes.append('Producteev is a functional project tracker. '
+                     'The free version is very full-featured. ')
+
+    # Documentation
+    if not check('documentation', 'none'):
+        if check('multiple', 'no') and (selection & {'bb', 'gh'}):
+            notes.append('Because you chose to not use multiple applications, '
+                         'Bitbucket or GitHub should be sufficient for documentation.')
+        elif check('multiple', 'no') and (selection & {'jr', 'tl', 'pv'}):
+            notes.append('Because you chose to not use multiple applications, '
+                         'Your issue tracker should be sufficient for documentation.')
+        elif check('documentation', 'small'):
+            if (selection & {'jr', 'tl', 'pv', 'bb', 'gh'}):
+                notes.append('Because you don\'t require much documentation, your other tools '
+                             'should be sufficient for documentation.')
+            elif small_team or check('duration', 'short'):
+                selection.add('gd')
+                notes.append('Because the small scope of your project, google docs '
+                             'should be sufficient for documentation.')
+            elif low_budget:
+                selection.add('gd')
+                notes.append('Because the small budget of your project, google docs '
+                             'should be sufficient for documentation.')
+        elif check('documentation', 'large'):
+            if low_budget:
+                selection.add('gd')
+                notes.append('Because the small budget of your project, google docs '
+                             'should be sufficient for documentation.')
+            else:
+                selection.add('cf')
+                notes.append('Confluence is an enterprise level documentation software.')
+
+    # Documentation
+    need_pm_software = (check('wbs', 'on') or
+                        check('gantt', 'on') or
+                        check('anls', 'on') or
+                        check('pm', 'on'))
+
+    if not need_pm_software:
+        notes.append('We\'ve determined specific PM software may not be '
+                     'necessary for your project.')
+        if (low_budget and small_team and check('duration', 'short')):
+            selection.add('gs')
+            notes.append('Google sheets or excel may be sufficient '
+                         'for your low PM requirements.')
+    else:
+        if check('budget', 'large'):
+            selection.add('lp')
+            notes.append('Because of your high budget, we think liquid planner may '
+                         'be suitable')
+        elif check('budget', 'none'):
+            selection.add('gs')
+            notes.append('Because of your low budget, you may have to use '
+                         'spreadsheet software for your PM requirements.')
+        elif check('web-based', 'yes'):
+            selection.add('tp')
+            notes.append('Because you perfer web based software, we recommend '
+                         'Tom\'s planner')
+        else:
+            selection.add('mp')
+
+    tools = filter_tools(selection)
+    return tools, notes
