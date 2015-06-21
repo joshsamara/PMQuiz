@@ -12,7 +12,7 @@ Quiz Section
   <h4 class="subheader">Fill out the following form for recommendations.</h4>
   <form action="{{ url_for('quiz') }}" method="post">
     <fieldset>
-      {# Row 1 #}
+      {# Row 1 size, type #}
       <div class="row">
         <div class="large-6 columns">
           <label>Team Size
@@ -31,9 +31,9 @@ Quiz Section
           <input name="anls" type="checkbox"><label>Analysts</label>
         </div>
       </div>
-      {# Row 2 #}
+      {# Row 2 budget, duration, multiple #}
       <div class="row">
-        <div class="large-4 columns">
+        <div class="large-6 columns">
           <label>Software Budget
             <select name="budget">
               <option value="none">None</option>
@@ -43,7 +43,7 @@ Quiz Section
             </select>
           </label>
         </div>
-        <div class="large-4 columns">
+        <div class="large-6 columns">
           <label>Estimated Duration
             <select name="duration">
               <option value="short">Short (< Month)</option>
@@ -53,16 +53,11 @@ Quiz Section
             </select>
           </label>
         </div>
-        <div class="large-4 columns">
-          <label>Multiple Projects?</label>
-          <input type="radio" name="multiple" value="yes"><label>Yes</label>
-          <input type="radio" name="multiple" value="no" checked="true"><label>No</label>
-        </div>
       </div>
-      {# Row 3 #}
+      {# Row 3 source, requirements #}
       <div class="row">
         <div class="large-6 columns">
-          <label>Source Control
+          <label>Source Control Hosting
             <select name="source">
               <option value="none">Not Needed</option>
               <option value="public">Public</option>
@@ -81,12 +76,12 @@ Quiz Section
           </label>
         </div>
       </div>
-      {# Row 4 #}
+      {# Row 4 multiple, visualizations #}
       <div class="row">
         <div class="large-6 columns">
-          <label>Are multiple tools okay?</label>
-          <input type="radio" name="tools" value="yes" checked="true"><label>Yes</label>
-          <input type="radio" name="tools" value="no"><label>No</label>
+          <label>Are multiple management tools okay?</label>
+          <input type="radio" name="multiple" value="yes" checked="true"><label>Yes</label>
+          <input type="radio" name="multiple" value="no"><label>No</label>
         </div>
         <div class="large-6 columns">
           <label>Visualizations Needed?</label>
@@ -96,7 +91,7 @@ Quiz Section
           <input name="gantt" type="checkbox"><label>Gantt Chart</label>
         </div>
       </div>
-      {# Row 5 #}
+      {# Row 5 web-based, other #}
       <div class="row">
         <div class="large-6 columns">
           <label>Web Based Only?</label>
@@ -105,9 +100,10 @@ Quiz Section
         </div>
         <div class="large-6 columns">
           <label>Other Requirements</label>
-          <input name="other-storage" type="checkbox"><label>File Storage</label>
+          <input name="other-storage" type="checkbox"><label>Other File Storage/Sharing</label>
           <input name="text-editor" type="checkbox"><label>Text Editor</label>
           <input name="regex" type="checkbox"><label>Regex Translator</label>
+          <input name="markdown" type="checkbox"><label>Markdown Translator</label>
         </div>
       </div>
       <input type="submit" class="button expand success">
