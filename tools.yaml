@@ -59,10 +59,15 @@
     uid: cf
 "Other Software":
   - name: Google Drive
-    desc: File storage and sharing
+    desc: Free file storage and sharing
     img: http://www.bjheinley.com/wp-content/uploads/2012/04/google_drive_600.png
     link: http://drive.google.com
-    uid: gd
+    uid: gr
+  - name: Amazon s3
+    desc: Amazon's scalable web storage
+    img: http://www.tivix.com/uploads/blog_pics/aws-logo.png
+    link: http://aws.amazon.com/s3/
+    uid: s3
   - name: Vim
     desc: Free extensible text editor
     img: https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Vimlogo.svg/1022px-Vimlogo.svg.png
@@ -78,3 +83,8 @@
     img: http://www.seocial.com/material/media/resource-regex101.jpg
     link: https://regex101.com/
     uid: re
+  - name: Markdown Live Preview
+    desc: Live preview for entered markdown. Useful for writing READMEs.
+    img: http://kirkstrobeck.github.io/whatismarkdown.com/img/markdown.png
+    link: http://markdownlivepreview.com/
+    uid: md
