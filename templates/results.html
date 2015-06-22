@@ -22,7 +22,7 @@ Tools that we may recommend
     <h4>Some notes about our recommendations</h4>
     <ul class="notes">
     {% for note in notes %}
-    <li>{{note}}</li>
+    <li>{{note|safe}}</li>
     {% endfor %}
     </ul>
   </div>

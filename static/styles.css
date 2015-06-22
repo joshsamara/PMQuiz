@@ -21,7 +21,7 @@ header .row {
 }
 
 .bg-blue1 {
-  background: #085a78;;
+  background: #085a78;
 }
 
 .bg-blue2 {
@@ -65,6 +65,12 @@ header .row {
 
 .notes {
   list-style-type: none;
+}
+
+.notes span {
+  color: #d10000;
+  font-weight: bold;
+  font-style: normal;
 }
 
 .notes li {
