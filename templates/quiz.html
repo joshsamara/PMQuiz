@@ -12,9 +12,9 @@ Quiz Section
   <h4 class="subheader">Fill out the following form for recommendations.</h4>
   <form action="{{ url_for('quiz') }}" method="post">
     <fieldset>
-      {# Row 1 size, type #}
+      {# Row 1 size, type, non-profit #}
       <div class="row">
-        <div class="large-6 columns">
+        <div class="large-4 columns">
           <label>Team Size
             <select name="size">
               <option value="personal">Personal (1)</option>
@@ -24,16 +24,21 @@ Quiz Section
             </select>
           </label>
         </div>
-        <div class="large-6 columns">
+        <div class="large-4 columns">
           <label>Team Members</label>
           <input name="eng" type="checkbox"><label>Engineers</label>
           <input name="pm" type="checkbox"><label>PMs</label>
           <input name="anls" type="checkbox"><label>Analysts</label>
         </div>
+        <div class="large-4 columns">
+          <label>NonProfit?</label>
+          <input type="radio" name="open" value="yes"><label>Yes</label>
+          <input type="radio" name="open" value="no" checked="true"><label>No</label>
+        </div>
       </div>
       {# Row 2 budget, duration, multiple #}
       <div class="row">
-        <div class="large-4 columns">
+        <div class="large-6 columns">
           <label>Software Budget
             <select name="budget">
               <option value="none">None</option>
@@ -43,7 +48,7 @@ Quiz Section
             </select>
           </label>
         </div>
-        <div class="large-4 columns">
+        <div class="large-6 columns">
           <label>Estimated Duration
             <select name="duration">
               <option value="short">Short (< Month)</option>
@@ -51,12 +56,6 @@ Quiz Section
               <option value="long">Long (Year+)</option>
               <option value="unlimited">Continuous (No End)</option>
             </select>
-          </label>
-        </div>
-        <div class="large-4 columns">
-          <label>NonProfit?
-          <input type="radio" name="open" value="yes" checked="true"><label>Yes</label>
-          <input type="radio" name="open" value="no"><label>No</label>
           </label>
         </div>
       </div>
@@ -84,25 +83,34 @@ Quiz Section
       </div>
       {# Row 4 multiple, visualizations #}
       <div class="row">
-        <div class="large-6 columns">
+        <div class="large-4 columns">
           <label>Are multiple management tools okay?</label>
           <input type="radio" name="multiple" value="yes" checked="true"><label>Yes</label>
           <input type="radio" name="multiple" value="no"><label>No</label>
         </div>
+        <div class="large-4 columns">
+          <label>Web Based Only?</label>
+          <input type="radio" name="web-based" value="yes"><label>Yes</label>
+          <input type="radio" name="web-based" value="no" checked="true"><label>No</label>
+        </div>
+        <div class="large-4 columns">
+          <label>Continuous Integration
+            <select name="ci">
+              <option value="none">Not Needed</option>
+              <option value="travis">Yes</option>
+              <option value="jenkins">Yes and Heavily Customizable</option>
+            </select>
+          </label>
+        </div>
+      </div>
+      {# Row 5 web-based, other #}
+      <div class="row">
         <div class="large-6 columns">
           <label>Visualizations Needed?</label>
           <input name="wbs" type="checkbox"><label>WBS</label>
           <input name="task-list" type="checkbox"><label>Task List</label>
           <input name="task-board" type="checkbox"><label>Task Board</label>
           <input name="gantt" type="checkbox"><label>Gantt Chart</label>
-        </div>
-      </div>
-      {# Row 5 web-based, other #}
-      <div class="row">
-        <div class="large-6 columns">
-          <label>Web Based Only?</label>
-          <input type="radio" name="web-based" value="yes"><label>Yes</label>
-          <input type="radio" name="web-based" value="no" checked="true"><label>No</label>
         </div>
         <div class="large-6 columns">
           <label>Other Requirements</label>

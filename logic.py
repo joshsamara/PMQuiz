@@ -170,5 +170,21 @@ def choose_tools(form_data):
         else:
             selection.add('mp')
 
+    # CI
+    if check('ci', 'travis'):
+        if low_budget:
+            if check('source', 'public'):
+                selection.add('travis')
+                notes.append('Travis CI is free for public repositories.')
+            else:
+                selection.add('jenkins')
+                notes.append('Travis is better suited for your project, but '
+                             'because of your budget, we recommend jenkinss')
+        else:
+            selection.add('travis')
+    elif check('ci', 'jenkins'):
+        selection.add('jenkins')
+
+
     tools = filter_tools(selection)
     return tools, notes

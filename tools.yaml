@@ -62,6 +62,17 @@
     img: /static/imgs/conf.png
     link: https://www.atlassian.com/software/confluence
     uid: cf
+"Continuous Integration":
+  - name: Travis CI
+    desc: Online continuous integration service. Free for public repositories.
+    img: /static/imgs/travis.png
+    link: https://travis-ci.org/
+    uid: travis
+  - name: Jenkins
+    desc: Open source continuous integration service. Highly customizable. Requires manual setup and configurations.
+    img: /static/imgs/jenkins.png
+    link: http://jenkins-ci.org/
+    uid: jenkins
 "Other Software":
   - name: Google Drive
     desc: Free file storage and sharing. Useful for non-software files.
