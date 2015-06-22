@@ -6,12 +6,15 @@ with open("tools.yaml", 'r') as stream:
     tmp_tools = load(stream)
     stream.close()
 
+# Sort our sections
+# We want Other Software to be last
 ALL_TOOLS = OrderedDict()
 for key in reversed(sorted(tmp_tools)):
     ALL_TOOLS[key] = tmp_tools[key]
 
 
 def filter_tools(selection):
+    """Filter all tools based on a list of uids."""
     selected_tools = OrderedDict()
     for group, tools in ALL_TOOLS.iteritems():
         group_selection = []
@@ -26,7 +29,9 @@ def filter_tools(selection):
 
 
 def choose_tools(form_data):
+    """The logic behind choosing tools."""
     def check(key, options):
+        """Check if the key in data == or is one of the given options."""
         v = form_data.get(key)
         if isinstance(options, list):
             return v in options
@@ -132,7 +137,6 @@ def choose_tools(form_data):
                              'should be sufficient for documentation.')
             else:
                 selection.add('cf')
-                notes.append('Confluence is an enterprise level documentation software.')
 
     # Documentation
     need_pm_software = (check('wbs', 'on') or
