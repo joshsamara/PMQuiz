@@ -1,95 +1,95 @@
 "Source Control":
   - name: GitHub
-    desc: Well established repository hosting service
+    desc: Well established web based repository hosting service. Has revision control tools, wikis, task management, issue tracking and more.
     img: /static/imgs/gh.png
     link: https://github.com/
     uid: gh
   - name: BitBucket
-    desc: Atlassian repository hosting service with free private repos
+    desc: Atlassian repository hosting service with free private repos. Has revision control tools, wikis, task management, issue tracking and more.
     img: /static/imgs/bb.png
     link: https://bitbucket.org/
     uid: bb
 "Project Tracking":
   - name: Trello
-    desc: Lightweight web-based ticketing system
+    desc: Lightweight web-based project management tracking software. Uses a kanban board. Has a very functional free version.
     img: /static/imgs/trello.png
     link: https://trello.com/
     uid: tl
   - name: Producteev
-    desc: Highly featured free project tracker
+    desc: Highly featured free project tracker. Highly featured for free/cheap versions. Has web and desktop applications.
     img: /static/imgs/pv.png
     link: https://www.producteev.com/
     uid: pv
   - name: Jira
-    desc: Atlassian project tracking software
+    desc: Atlassian project tracking software. Highly featured and integrates with BitBucket and Confluence. Free for open source projects.
     img: /static/imgs/jira.jpg
     link: https://www.atlassian.com/software/jira
     uid: jr
 "Project Management":
   - name: Microsoft Project
-    desc: Microsoft developed project management software
+    desc: Microsoft developed project management software. Highly featured in its ability to manage project specifics and create visualizations.
     img: /static/imgs/mp.png
     link: https://products.office.com/en-us/project/project-and-portfolio-management-software
     uid: mp
   - name: ProjectLibre
-    desc: Free project management software
+    desc: Free project management software. An attempt to recreate MicrosoftProject as an open source project.
     img: /static/imgs/pl.jpg
     link: http://www.projectlibre.org/
     uid: pl
   - name: Liquid Planner
-    desc: Expensive, but highly polished and very functional software
+    desc: Web-based, but highly polished and very functional software. Offers a resource/priority driven approach. Very expensive to lisence.
     img: /static/imgs/lp.jpg
     link: http://www.liquidplanner.com/
     uid: lp
   - name: Google Sheets
-    desc: Free spreadsheet editor
+    desc: Free spreadsheet editor. On a budget, can create visualizations if needed.
     img: /static/imgs/gs.png
     link: http://sheets.google.com
     uid: gs
   - name: Tom's Planner
-    desc: Online project management tool
+    desc: Online project management tool. Modestly priced and web-based.
     img: /static/imgs/toms.png
     link: http://www.tomsplanner.com/
     uid: tp
 "Project Documentation":
   - name: Google Docs
-    desc: Free document editor
+    desc: Free document editor. Can be used to document projects on a budget if other tools do not handle the level of documentation needed.
     img: /static/imgs/docs.png
     link: http://docs.google.com
     uid: gd
   - name: Confluence
-    desc: Atlassian online project documenting wiki
+    desc: Atlassian online project documenting wiki. Very functional with integration with BitBucket and Jira.
     img: /static/imgs/conf.png
     link: https://www.atlassian.com/software/confluence
     uid: cf
 "Other Software":
   - name: Google Drive
-    desc: Free file storage and sharing
+  desc: Free file storage and sharing. Useful for non-software files.
     img: /static/imgs/gdrive.png
     link: http://drive.google.com
     uid: gr
   - name: Amazon s3
-    desc: Amazon's scalable web storage
+    desc: Amazon's scalable web storage. Can be used for sotrage and file serving. Will require setup to use most efficiently.
     img: /static/imgs/aws.png
     link: http://aws.amazon.com/s3/
     uid: s3
   - name: Vim
-    desc: Free extensible text editor
+    desc: Free extensible text editor. With plugins and extensions, can be setup to be as functional as modern day IDEs.
     img: /static/imgs/vim.png
     link: http://www.vim.org/
     uid: vi
   - name: Sublime Text
-    desc: Multipurpose extensible text editor
+    desc: Multipurpose extensible text editor. Simple and modifiable.
     img: /static/imgs/sublime.jpg
     link: http://www.sublimetext.com/
     uid: st
   - name: Regular Expressions 101
-    desc: Regex parsing and translation tool
+    desc: Regex parsing and translation tool. Free and online.
     img: /static/imgs/regex.jpg
     link: https://regex101.com/
     uid: re
   - name: Markdown Live Preview
-    desc: Live preview for entered markdown. Useful for writing READMEs.
+    desc: Live preview for entered markdown. Useful for writing READMEs. Free and online.
     img: /static/imgs/markdown.png
     link: http://markdownlivepreview.com/
     uid: md
