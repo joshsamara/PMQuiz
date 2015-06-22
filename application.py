@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
+import os
 from flask import Flask, render_template, request
 from logic import choose_tools, ALL_TOOLS
 app = Flask(__name__)
@@ -38,4 +39,5 @@ def results(recommend=False, tool_data=ALL_TOOLS, notes=None):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
