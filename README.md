@@ -11,7 +11,7 @@ gives you a small quiz about a planned project and recommends tools based on the
 requirements of that project.
 
 ## Demo
-WIP
+[Here you go.](https://pmquiz.herokuapp.com/) Hosted on Heroku.
 
 ## Develop
 Here are some instructions if you want to develop this project yourself.
