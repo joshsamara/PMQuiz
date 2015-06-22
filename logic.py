@@ -78,6 +78,21 @@ def choose_tools(form_data):
     if check('regex', 'on'):
         selection.add('re')
 
+    # CI
+    if check('ci', 'travis'):
+        if low_budget:
+            if check('source', 'public'):
+                selection.add('travis')
+                notes.append('<span>Travis CI</span> is free for public repositories')
+            else:
+                selection.add('jenkins')
+                notes.append('<span>Travis</span>may be better suited for your project, but '
+                             'because of your budget, we recommend <span>Jenkins</span>')
+        else:
+            selection.add('travis')
+    elif check('ci', 'jenkins'):
+        selection.add('jenkins')
+
     # Source Control
     if check('source', 'public'):
         selection.add('gh')
@@ -101,8 +116,46 @@ def choose_tools(form_data):
     elif check('source', 'personal'):
         notes.append('You will need to create your own source control hosting option')
 
+    # PM Software
+    need_pm_software = (check('wbs', 'on') or
+                        check('gantt', 'on') or
+                        check('anls', 'on') or
+                        check('pm', 'on'))
+
+    if not need_pm_software:
+        notes.append('We\'ve determined specific PM software may not be '
+                     'necessary for your project')
+    elif (low_budget and small_team and check('duration', 'short')):
+        selection.add('gs')
+        notes.append('A spreadsheet tool like <span>Google Sheets</span> '
+                     'may be sufficient for your low PM requirements')
+    else:
+        if check('budget', 'large'):
+            selection.add('lp')
+            notes.append('Because of your high budget, we think <span>'
+                         'Liquid Planner</span> may be suitable')
+        elif check('web-based', 'yes'):
+            if check('budget', 'none'):
+                selection.add('gs')
+                notes.append('Because of your low budget and web-based preference'
+                             'a spreadsheet tool like <span>Google Sheets</span> '
+                             'may be sufficient.')
+            else:
+                selection.add('tp')
+                notes.append('Because you perfer web based software, we recommend '
+                             '<span>Tom\'s planner</span>')
+        elif check('budget', 'none'):
+            selection.add('pl')
+            notes.append('Because of your low budget, we recommend'
+                         '<span>Project Libre</span>')
+        else:
+            selection.add('mp')
+
     # Project Tracking
-    if check('multiple', 'no') and (selection & {'bb', 'gh'}):
+    if (selection & {'lp'}):
+        notes.append('Because we recommend <span>Liquid Planner</span>, we '
+                     'don\'t believe you\'ll need additional tracking software.')
+    elif check('multiple', 'no') and (selection & {'bb', 'gh'}):
         notes.append('Because you chose to not use multiple PM applications, '
                      'your source control manager should '
                      'be sufficient for task tracking')
@@ -127,7 +180,7 @@ def choose_tools(form_data):
             notes.append('Because you chose to not use multiple applications, '
                          'your source control manager should'
                          'should be sufficient for documentation')
-        elif check('multiple', 'no') and (selection & {'jr', 'tl', 'pv'}):
+        elif check('multiple', 'no') and (selection & {'jr', 'tl', 'pv', 'lp'}):
             notes.append('Because you chose to not use multiple applications, '
                          'Your issue tracker should be sufficient for '
                          'documentation')
@@ -155,59 +208,6 @@ def choose_tools(form_data):
                              'documentation')
             else:
                 selection.add('cf')
-
-    # Documentation
-    need_pm_software = (check('wbs', 'on') or
-                        check('gantt', 'on') or
-                        check('anls', 'on') or
-                        check('pm', 'on'))
-
-    if not need_pm_software:
-        notes.append('We\'ve determined specific PM software may not be '
-                     'necessary for your project')
-    elif (low_budget and small_team and check('duration', 'short')):
-        selection.add('gs')
-        notes.append('A spreadsheet tool like <span>Google Sheets</span> '
-                     'may be sufficient for your low PM requirements')
-    else:
-        if check('budget', 'large'):
-            selection.add('lp')
-            notes.append('Because of your high budget, we think <span>'
-                         'Liquid Planner</span> may be suitable')
-            if (selection & {'jr', 'tl', 'pv'}):
-                notes.append('<span>Liquid Planner</span> may have features that'
-                             'overlap with your project tracking software.')
-        elif check('web-based', 'yes'):
-            if check('budget', 'none'):
-                selection.add('gs')
-                notes.append('Because of your low budget and web-based preference'
-                             'a spreadsheet tool like <span>Google Sheets</span> '
-                             'may be sufficient.')
-            else:
-                selection.add('tp')
-                notes.append('Because you perfer web based software, we recommend '
-                             '<span>Tom\'s planner</span>')
-        elif check('budget', 'none'):
-            selection.add('pl')
-            notes.append('Because of your low budget, we recommend'
-                         '<span>Project Libre</span>')
-        else:
-            selection.add('mp')
-
-    # CI
-    if check('ci', 'travis'):
-        if low_budget:
-            if check('source', 'public'):
-                selection.add('travis')
-                notes.append('<span>Travis CI</span> is free for public repositories')
-            else:
-                selection.add('jenkins')
-                notes.append('<span>Travis</span>may be better suited for your project, but '
-                             'because of your budget, we recommend <span>Jenkins</span>')
-        else:
-            selection.add('travis')
-    elif check('ci', 'jenkins'):
-        selection.add('jenkins')
 
     tools = filter_tools(selection)
     return tools, notes
