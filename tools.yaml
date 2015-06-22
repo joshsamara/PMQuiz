@@ -64,7 +64,7 @@
     uid: cf
 "Other Software":
   - name: Google Drive
-  desc: Free file storage and sharing. Useful for non-software files.
+    desc: Free file storage and sharing. Useful for non-software files.
     img: /static/imgs/gdrive.png
     link: http://drive.google.com
     uid: gr
