@@ -33,7 +33,7 @@ Quiz Section
       </div>
       {# Row 2 budget, duration, multiple #}
       <div class="row">
-        <div class="large-6 columns">
+        <div class="large-4 columns">
           <label>Software Budget
             <select name="budget">
               <option value="none">None</option>
@@ -43,7 +43,7 @@ Quiz Section
             </select>
           </label>
         </div>
-        <div class="large-6 columns">
+        <div class="large-4 columns">
           <label>Estimated Duration
             <select name="duration">
               <option value="short">Short (< Month)</option>
@@ -51,6 +51,12 @@ Quiz Section
               <option value="long">Long (Year+)</option>
               <option value="unlimited">Continuous (No End)</option>
             </select>
+          </label>
+        </div>
+        <div class="large-4 columns">
+          <label>NonProfit?
+          <input type="radio" name="open" value="yes" checked="true"><label>Yes</label>
+          <input type="radio" name="open" value="no"><label>No</label>
           </label>
         </div>
       </div>

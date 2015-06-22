@@ -102,6 +102,9 @@ def choose_tools(form_data):
                      'Bitbucket or GitHub should be sufficient for task tracking.')
     elif not low_budget:
         selection.add('jr')
+    elif check('open', 'yes'):
+        selection.add('jr')
+        notes.append('Jira offers free licences for non-profit projects.')
     elif check('task-board', 'on') or small_team or check('duration', 'short'):
         selection.add('tl')
         notes.append('Trello is good for smaller projects or kanban projects.')
