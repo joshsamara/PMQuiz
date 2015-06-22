@@ -174,15 +174,23 @@ def choose_tools(form_data):
             selection.add('lp')
             notes.append('Because of your high budget, we think <span>'
                          'Liquid Planner</span> may be suitable')
-        elif check('budget', 'none'):
-            selection.add('gs')
-            notes.append('Because of your low budget, '
-                         'a spreadsheet tool like <span>Google Sheets</span> '
-                         'may be sufficient for your low PM requirements')
+            if (selection & {'jr', 'tl', 'pv'}):
+                notes.append('<span>Liquid Planner</span> may have features that'
+                             'overlap with your project tracking software.')
         elif check('web-based', 'yes'):
-            selection.add('tp')
-            notes.append('Because you perfer web based software, we recommend '
-                         '<span>Tom\'s planner</span>')
+            if check('budget', 'none'):
+                selection.add('gs')
+                notes.append('Because of your low budget and web-based preference'
+                             'a spreadsheet tool like <span>Google Sheets</span> '
+                             'may be sufficient.')
+            else:
+                selection.add('tp')
+                notes.append('Because you perfer web based software, we recommend '
+                             '<span>Tom\'s planner</span>')
+        elif check('budget', 'none'):
+            selection.add('pl')
+            notes.append('Because of your low budget, we recommend'
+                         '<span>Project Libre</span>')
         else:
             selection.add('mp')
 
