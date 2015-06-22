@@ -27,12 +27,12 @@ def quiz():
 
 
 # Results Page
-@app.route("/results")
+@app.route("/tools")
 def results(recommend=False, tool_data=ALL_TOOLS, notes=None):
     """Serve the page for either all or recommended tools."""
     if notes is None:
         notes = []
-    return render_template('results.html',
+    return render_template('tools.html',
                            recommend=recommend,
                            tool_data=tool_data,
                            notes=notes)
