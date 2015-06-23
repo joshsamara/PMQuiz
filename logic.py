@@ -184,6 +184,11 @@ def choose_tools(form_data):
             notes.append('Because you chose to not use multiple applications, '
                          'Your issue tracker should be sufficient for '
                          'documentation')
+
+        elif check('open', 'yes'):
+            selection.add('cf')
+            notes.append('<span>Confluence</span> offers free licences for '
+                         'non-profit projects')
         elif check('documentation', 'small'):
             if (selection & {'bb', 'gh'}):
                 notes.append('Because you don\'t require much documentation, '
